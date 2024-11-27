@@ -1,0 +1,31 @@
+.project h1 {
+    margin: 40px auto;
+    text-align: center;
+    width: 60vw;
+    box-shadow: 3px 3px 15px gray;
+}
+
+
+.project-container {
+    margin: 0 200px;
+    margin-bottom: 200px;
+}
+table {
+    border-collapse: collapse;
+  }
+
+  th, td {
+   
+    text-align: center;
+  }
+  
+  th {
+    padding: 20px;
+    border-bottom: 1px solid black;
+  }
+
+  td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Faint 1px border */
+  }
+   

@@ -1,0 +1,43 @@
+/* Services */
+
+.service h1 {
+    margin: 40px auto;
+    text-align: center;
+    width: 60vw;
+    box-shadow: 3px 3px 15px gray;
+  }
+  
+  .service-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 200px;
+    margin-bottom: 200px;
+    gap: 40px;
+  }
+  
+  .service-item {
+    border: 1px solid black;
+    background-color:  rgba(128, 128, 128, 0.2);
+    box-shadow: 1px 1px 10px gray;
+    border-radius: 5px;
+    
+  }
+  
+  .service-item h3 {
+   /*  margin: 10px auto; */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid black;
+   
+    /* background-color: rgba(128, 128, 128, 0.2); */
+    color: var(--BGCOLOR);
+    
+  }
+  
+  .service-item ul {
+    padding: 30px;
+   /*  margin: 0 40px; */
+    list-style: disc;
+    margin-bottom: 40px;
+  }
+  

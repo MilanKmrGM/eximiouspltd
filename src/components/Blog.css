@@ -1,0 +1,51 @@
+/* Blogs */
+
+.blog h1 {
+    margin: 40px auto;
+    text-align: center;
+    width: 60vw;
+    box-shadow: 3px 3px 15px gray;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 200px;
+    gap: 30px;
+    margin-bottom: 200px;
+  }
+  
+  .card-item {
+    border: 1px solid black;
+    /* text-align: center; */
+    display: grid;
+    grid-template-rows: 1fr auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px gray;
+  }
+  
+  /* .card-img-container {
+    width: 250px;
+  } */
+  
+  .card-img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .card-detail {
+    margin-top: 15px;
+  }
+  
+  .card-detail h3 {
+    margin-bottom: 10px;
+    padding-left: 20px;
+  }
+  
+  .card-detail p {
+    text-align: justify;
+    padding: 0 20px;
+    margin-bottom: 25px;
+  }
+  
