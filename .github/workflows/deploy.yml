@@ -34,8 +34,8 @@ jobs:
       # Step 5: Set Git user name and email (Required for gh-pages to commit changes)
       - name: Set Git user name and email
         run: |
-          git config --global user.name "Your Name"
-          git config --global user.email "you@example.com"
+          git config --global user.name "MilanKmrGM"
+          git config --global user.email "gmm94300@gmail.com"
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
