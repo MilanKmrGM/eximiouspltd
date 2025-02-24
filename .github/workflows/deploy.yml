@@ -31,8 +31,14 @@ jobs:
       - name: Build Vite app
         run: npm run build
 
-      # Step 5: Deploy to GitHub Pages
+      # Step 5: Set Git user name and email (Required for gh-pages to commit changes)
+      - name: Set Git user name and email
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "you@example.com"
+
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         run: npm run deploy
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Make sure GH_TOKEN is set in your secrets
