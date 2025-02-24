@@ -29,7 +29,7 @@ const Header = React.forwardRef((props, ref) => {
                 <li><Link to="/about">About Us</Link></li>
                 <li><Link to="/services">Services</Link></li>
                 <li><Link to="/projects">Projects</Link></li>
-                <li><Link to="/blog">Blogs</Link></li>
+                {/* <li><Link to="/blog">Blogs</Link></li> */}
                 <li><Link to="/contact">Contact</Link></li>
               </ul>
             </nav>
@@ -39,14 +39,14 @@ const Header = React.forwardRef((props, ref) => {
               <li><a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} className="custom-icon" /></a></li>
               <li><a href="https://twitter.com"><FontAwesomeIcon icon={faTwitter} className="custom-icon" /></a></li>
               <li><a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram} className="custom-icon" /></a></li>
-              {(pathname==="/blog") && (
+              {/* {(pathname==="/blog") && (
                 <li><Link to="/login"><FontAwesomeIcon icon={faSignInAlt} size="lg" style={{ color: 'white' }} /></Link></li> 
-              ) }
-             { (
+              ) } */}
+             {/* { (
               isBlogId || pathname===`/blog/post` || isBlogEditId) && (
                 <li><Logout /></li> 
               )
-              }
+              } */}
              
               </ul>
             </div>

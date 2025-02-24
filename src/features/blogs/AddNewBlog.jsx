@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
+/* import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
 
 import './AddNewBlog.css'
 import api from '../api/login'
@@ -104,4 +103,4 @@ const AddNewBlog = () => {
   )
 }
 
-export default AddNewBlog
+export default AddNewBlog */

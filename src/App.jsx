@@ -34,14 +34,14 @@ function App() {
           <Route path="services" element={<Services />} />
           <Route path="projects" element={<Projects />} />
 
-          <Route path="blog">
+          {/* <Route path="blog">
             <Route index element={<Blog />} />
             <Route path="post" element={<AddNewBlog />} />
             <Route path=":id" element={<BlogPage />} />
             <Route path="edit">
               <Route path=":id" element={<EditBlog />} />
             </Route>
-          </Route>
+          </Route> */}
 
           <Route path="login" element={<Login />} />
           
