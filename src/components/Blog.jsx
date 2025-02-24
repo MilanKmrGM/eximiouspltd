@@ -1,53 +1,71 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import './Blog.css'
-import photo3 from '../img/first.jpg'
-import photo4 from '../img/second.jpg'
-import photo5 from '../img/third.jpg'
-import photo6 from '../img/forth.jpg'
-import photo7 from '../img/first.jpg'
+import api from '../features/api/login'
 
 const Blogs = () => {
+  
+  const [blogs, setBlogs] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
-  const cards = [
-    {title: "Hellow Everyone",
-      img: photo3,
-      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis architecto veritatis ratione aut molestiae officiis laborum incidunt culpa et molestias sequi, quisquam officia? Repudiandae, adipisci voluptatem! Rerum ea obcaecati nam!Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo esse quia similique reiciendis debitis ipsam praesentium dignissimos ea ipsum cum, nobis perferendis aspernatur ullam perspiciatis facilis, repellat dicta impedit. In?"
-    },
-    {title: "Good Morning",
-      img: photo4,
-      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis architecto veritatis "
-    },
-    {title: "Let's play holy",
-      img: photo5,
-      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis architecto veritatis ratione aut molestiae officiis laborum incidunt culpa et molestias sequi, quisquam officia? Repudiandae, adipisci voluptatem! Rerum ea obcaecati nam!Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo esse quia similique reiciendis debitis ipsam praesentium dignissimos ea ipsum cum, nobis perferendis aspernatur ullam perspiciatis facilis, repellat dicta impedit. In?"
-    },
-    {title: "Happy new year",
-      img: photo6,
-      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis architecto veritatis ratione aut molestiae officiis laborum incidunt culpa et molestias sequi, quisquam officia? Repudiandae, adipisci voluptatem! Rerum ea obcaecati nam!Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo esse quia similique reiciendis debitis ipsam praesentium dignissimos ea ipsum cum, nobis perferendis aspernatur ullam perspiciatis facilis, repellat dicta impedit. In?"
-    },
-    {title: "Good Afternoon",
-      img: photo7,
-      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis architecto veritatis ratione aut molestiae officiis laborum incidunt culpa et molestias sequi, quisquam officia? Repudiandae, adipisci voluptatem! Rerum ea obcaecati nam!Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo esse quia similique reiciendis debitis ipsam praesentium dignissimos ea ipsum cum, nobis perferendis aspernatur ullam perspiciatis facilis, repellat dicta impedit. In?"
+  const navigate = useNavigate()
+  
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const response = await api.get('/blogs')
+        if(response.data && response.status === 200) {
+          setBlogs(response.data)
+          
+          console.log(response.data)
+        }
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setIsLoading(false)
+      }
+
     }
-  ]
+    fetchPosts()
+  }, [navigate])
+  
+  if(isLoading) {
+    return (
+      <h2>Loading...</h2>
+   ) 
+  }
+
   return (
     <div className="blog">
-      <h1>Blogs</h1>
-      <div className="card-container">
-        {cards.map((card, cardIndex) => {
-          return (<div className="card-item" key={cardIndex}>
-            <div className="card-img-container">
-            <img src={card.img} alt="" />
-            </div>
-            <div className="card-detail">
-            <h3><Link>{card.title}</Link></h3>
-            <p>{card.content.substring(0, 100)}</p>
-            </div>
-  
-          </div>)
-        })}
+      
+      <h1>
+        Blogs
+      </h1>
+      
+      <div className="blog-container">
+        { (
+          blogs.map((blog, index) => {
+
+            const imagePath = blog.image.replace(/\\/g, '/')
+            const fullImagePath = `http://localhost:3500/${imagePath}`
+            return (<Link to={`/blog/${blog._id}`} className="blog-item" key={index}>
+             <div className="blog-img-container">
+             <img src={fullImagePath} alt="" />
+             </div>
+             <div className="blog-detail">
+             <h3>{blog.title}</h3>
+             <p 
+             dangerouslySetInnerHTML={{__html: blog.content.substring(0, 100)}}
+             />
+             </div>
+
+   
+           </Link>)
+         })
+
+  )}
+        <button><Link to="/blog/post">Add New Post</Link></button>
       </div>
       
     </div>

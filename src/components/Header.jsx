@@ -1,15 +1,19 @@
 import React from 'react'
-import './Header.css'
-import photo8 from '../img/third.jpg'
-
-import {Link, useLocation} from 'react-router-dom'
+import {Link, useLocation, useMatch} from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+
+import './Header.css'
+import photo8 from '../img/third.jpg'
+import Logout from '../features/users/Logout'
 
 const Header = React.forwardRef((props, ref) => {
 
   const location = useLocation()
   const {pathname} = location
+  const isBlogId = useMatch('/blog/:id')
+  const isBlogEditId = useMatch('/blog/edit/:id')
 
   return (
     <header className="header" ref={ref} >
@@ -33,8 +37,17 @@ const Header = React.forwardRef((props, ref) => {
             <div className="social-media-header">
               <ul>
               <li><a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} className="custom-icon" /></a></li>
-              <li><a href="https://twitter.com"><FontAwesomeIcon icon={faInstagram} className="custom-icon" /></a></li>
-              <li><a href="https://instagram.com"><FontAwesomeIcon icon={faTwitter} className="custom-icon" /></a></li>
+              <li><a href="https://twitter.com"><FontAwesomeIcon icon={faTwitter} className="custom-icon" /></a></li>
+              <li><a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram} className="custom-icon" /></a></li>
+              {(pathname==="/blog") && (
+                <li><Link to="/login"><FontAwesomeIcon icon={faSignInAlt} size="lg" style={{ color: 'white' }} /></Link></li> 
+              ) }
+             { (
+              isBlogId || pathname===`/blog/post` || isBlogEditId) && (
+                <li><Logout /></li> 
+              )
+              }
+             
               </ul>
             </div>
 

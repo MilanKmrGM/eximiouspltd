@@ -1,0 +1,18 @@
+.login h1 {
+    margin: 40px auto;
+    text-align: center;
+    width: 60vw;
+    box-shadow: 3px 3px 15px gray;
+  }
+
+.login {
+    height: 100vh;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 200px;
+  gap: 60px;
+  margin-bottom: 200px;
+}

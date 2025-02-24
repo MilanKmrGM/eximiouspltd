@@ -35,14 +35,17 @@ a {
 }
 
 #root {
-  /* min-height: 100vh; */
-  /* display: flex;
-  flex-direction: column; */
-  display: grid;
-  grid-template-rows: min-content 1fr auto;
+  
+  display: flex;
+  flex-direction: column;
+  /* display: grid;
+  grid-template-rows: min-content 1fr auto; */
 }
 
-
+.main {
+  min-height: 100vh;
+  flex-grow: 1;
+}
 
 
 
